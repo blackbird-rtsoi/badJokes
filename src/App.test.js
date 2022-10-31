@@ -32,6 +32,4 @@ test("should hide modal when button is selected", async () => {
 	expect(
 		screen.queryByText(/Let's hide this modal.../i)
 	).not.toBeInTheDocument();
-
-	expect(linkElement).toHaveFocus();
 });

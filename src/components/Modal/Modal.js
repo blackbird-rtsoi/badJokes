@@ -1,32 +1,38 @@
 import React from "react";
 import ReactDom from "react-dom";
 import Button from "../Button/Button";
-import jokes from "../../utils/jokes";
+import useRandomJokes from "../../hooks/useRanomJokes";
 
 // eslint-disable-next-line
 import styles from "./modal.css";
 
-const Modal = ({ isShowing, closeModal }) =>
-	isShowing
-		? ReactDom.createPortal(
-				<>
-					<div className='wrapper'>
-						<div className='backdrop'>
-							<div className='modal' aria-label={"dialog"}>
-								<div className='content'>
-									<p className='header'>{jokes}</p>
-									<div className='modal-button'>
-										<Button
-											aria-label={"close button"}
-											onClick={closeModal}></Button>
-									</div>
-								</div>
+function Modal({ closeModal }) {
+	const { textValue, changeTextValue } = useRandomJokes();
+	return ReactDom.createPortal(
+		<>
+			<div className='wrapper'>
+				<div className='backdrop'>
+					<div className='modal' aria-label={"dialog"}>
+						<div className='content'>
+							<h1 className='header'> How bad can a joke really be?</h1>
+							<p className='text'>{textValue}</p>
+							<div className='modal-button'>
+								<Button
+									aria-label={"close button"}
+									children={"Pick a joke"}
+									onClick={changeTextValue}></Button>
+								<Button
+									aria-label={"close button"}
+									children={"Hide me"}
+									onClick={closeModal}></Button>
 							</div>
 						</div>
 					</div>
-				</>,
-				document.body
-		  )
-		: null;
+				</div>
+			</div>
+		</>,
+		document.body
+	);
+}
 
 export default Modal;

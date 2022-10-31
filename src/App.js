@@ -10,7 +10,9 @@ function App() {
 			<button className='button-default' onClick={toggleModal}>
 				{message}
 			</button>
-			<Modal isShowing={isShowing} closeModal={toggleModal} />
+			{isShowing ? (
+				<Modal isShowing={isShowing} closeModal={toggleModal} />
+			) : null}
 		</div>
 	);
 }

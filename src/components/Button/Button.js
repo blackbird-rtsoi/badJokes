@@ -3,11 +3,10 @@ import React from "react";
 // eslint-disable-next-line
 import styles from "./button.css";
 
-const text = "Let's hide this modal...";
-const Button = ({ onClick }) => {
+const Button = ({ onClick, children }) => {
 	return (
 		<button type='button' onClick={onClick}>
-			{text}
+			{children}
 		</button>
 	);
 };

@@ -1,4 +1,4 @@
-let jokes = [
+const jokes = [
 	"Dear Math, grow up and solve your own problems.",
 	"What did the janitor say when he jumped out of the closet?... \n Supplies!",
 	"Have you heard about the chocolate record player?...\n It sounds pretty sweet.",

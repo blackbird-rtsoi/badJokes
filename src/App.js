@@ -1,25 +1,26 @@
-import "./App.css";
+// import "./App.css";
+import Button from "./components/Button/Button";
 import Modal from "./components/Modal/Modal";
 import useModal from "./hooks/useModal";
 import useRandomJokes from "./hooks/useRanomJokes";
 
 const message = "Show Modal";
 function App() {
-	const { isShowing, toggleModal } = useModal();
-	const { textValue, changeTextValue } = useRandomJokes();
+	const [ isShowing, toggleModal ] = useModal();
+	const [ textValue, changeTextValue ] = useRandomJokes();
 	return (
 		<div className='App'>
-			<button className='button-default' onClick={toggleModal}>
-				{message}
-			</button>
-			{isShowing ? (
+			<Button
+				label={message}
+				onClick={toggleModal}
+			/>
+			{isShowing &&
 				<Modal
-					isShowing={isShowing}
-					closeModal={toggleModal}
+					onClose={toggleModal}
 					textValue={textValue}
-					changeTextValue={changeTextValue}
+					onPickJokeClick={changeTextValue}
 				/>
-			) : null}
+			}
 		</div>
 	);
 }

@@ -1,12 +1,12 @@
 import React from "react";
 
-// eslint-disable-next-line
-import styles from "./button.css";
+// import styles from "./button.css";
+import "./button.css";
 
-const Button = ({ onClick, children }) => {
+const Button = ({ onClick, label }) => {
 	return (
 		<button type='button' onClick={onClick}>
-			{children}
+			{label}
 		</button>
 	);
 };

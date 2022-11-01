@@ -5,7 +5,7 @@ import "./button.css";
 
 const Button = ({ onClick, label }) => {
 	return (
-		<button type='button' onClick={onClick}>
+		<button className={'app-button'} type='button' onClick={onClick}>
 			{label}
 		</button>
 	);
